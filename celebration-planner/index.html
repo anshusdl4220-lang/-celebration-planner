@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="Plan weddings, birthdays and community events: budget split, timeline, vendor checklist and ideas.">
+  <title>Celebration Planner</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#plan-form">Skip to planner</a>
+
+  <header class="hero">
+    <p class="eyebrow">Celebration &amp; Event Planner</p>
+    <h1>Plan the day. <span>Skip the stress.</span></h1>
+    <p class="lead">Tell us about your event. Get a budget split, a dated timeline, a vendor checklist and ideas that fit your guests, season and budget.</p>
+  </header>
+
+  <main class="layout">
+    <form id="plan-form" class="card" novalidate aria-labelledby="form-title">
+      <h2 id="form-title">Your event</h2>
+
+      <div class="field">
+        <label for="type">Event type</label>
+        <select id="type" name="type" required aria-describedby="type-err">
+          <option value="wedding">Wedding</option>
+          <option value="birthday">Birthday</option>
+          <option value="community">Community event</option>
+        </select>
+        <p class="err" id="type-err" role="alert"></p>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="guests">Guests</label>
+          <input id="guests" name="guests" type="number" inputmode="numeric" min="1" max="5000" value="100" required aria-describedby="guests-err">
+          <p class="err" id="guests-err" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="budget">Budget (₹)</label>
+          <input id="budget" name="budget" type="number" inputmode="numeric" min="1000" step="1000" value="300000" required aria-describedby="budget-err">
+          <p class="err" id="budget-err" role="alert"></p>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="date">Event date</label>
+        <input id="date" name="date" type="date" required aria-describedby="date-err">
+        <p class="err" id="date-err" role="alert"></p>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="setting">Setting</label>
+          <select id="setting" name="setting">
+            <option value="either">Either</option>
+            <option value="indoor">Indoor</option>
+            <option value="outdoor">Outdoor</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="theme">Theme</label>
+          <select id="theme" name="theme">
+            <option value="modern">Modern</option>
+            <option value="traditional">Traditional</option>
+            <option value="garden">Garden</option>
+            <option value="retro">Retro</option>
+            <option value="festive">Festive</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field" id="age-field" hidden>
+        <label for="ageGroup">Main age group</label>
+        <select id="ageGroup" name="ageGroup">
+          <option value="">Mixed</option>
+          <option value="kids">Kids</option>
+          <option value="teens">Teens</option>
+          <option value="adults">Adults</option>
+          <option value="seniors">Seniors</option>
+        </select>
+      </div>
+
+      <fieldset>
+        <legend>Food needs</legend>
+        <label class="chip"><input type="checkbox" name="dietary" value="vegetarian"><span>Vegetarian</span></label>
+        <label class="chip"><input type="checkbox" name="dietary" value="vegan"><span>Vegan</span></label>
+        <label class="chip"><input type="checkbox" name="dietary" value="jain"><span>Jain</span></label>
+        <label class="chip"><input type="checkbox" name="dietary" value="halal"><span>Halal</span></label>
+        <label class="chip"><input type="checkbox" name="dietary" value="gluten-free"><span>Gluten-free</span></label>
+      </fieldset>
+
+      <button type="submit" class="btn">Build my plan</button>
+    </form>
+
+    <section id="results" class="results" aria-live="polite" aria-label="Your plan" tabindex="-1">
+      <div class="card empty">
+        <h2>Your plan appears here</h2>
+        <p>Fill in the form and press <strong>Build my plan</strong>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>Plans use rule-based guidance for India (INR, monsoon months June to September). Always confirm quotes with vendors.</p></footer>
+
+  <script src="js/planner.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
